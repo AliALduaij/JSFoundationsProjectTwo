@@ -14,7 +14,8 @@
  *
  */
 function filterEvens(numbers) {
-	// your code goes here!
+  let Even = numbers.filter(num => num % 2 == 0);
+  return Even;
 }
 
 /**
@@ -29,7 +30,8 @@ function filterEvens(numbers) {
  *
  */
 function filterOdds(numbers) {
-	// your code goes here!
+  let Odd = numbers.filter(num => num % 2 !== 0);
+  return Odd;
 }
 
 /**
@@ -43,13 +45,73 @@ function filterOdds(numbers) {
  *
  */
 function sumOdds(numbers) {
-	// your code goes here!
+  let Odd = filterOdds(numbers);
+  total = 0;
+  Odd.forEach(element => (total += element));
+  return total;
 }
 
-
-
-let states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
-
+let states = [
+  "Alabama",
+  "Alaska",
+  "American Samoa",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "District of Columbia",
+  "Federated States of Micronesia",
+  "Florida",
+  "Georgia",
+  "Guam",
+  "Hawaii",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Marshall Islands",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Mississippi",
+  "Missouri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "New York",
+  "North Carolina",
+  "North Dakota",
+  "Northern Mariana Islands",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Palau",
+  "Pennsylvania",
+  "Puerto Rico",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virgin Island",
+  "Virginia",
+  "Washington",
+  "West Virginia",
+  "Wisconsin",
+  "Wyoming"
+];
 
 /**
  * Receives a number (`minLength`)
@@ -65,7 +127,8 @@ let states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','Californ
  *
  */
 function stateNamesLongerThan(minLength) {
-	// your code goes here!
+  let names = states.filter(stat => stat.length > minLength);
+  return names;
 }
 
 /**
@@ -79,7 +142,8 @@ function stateNamesLongerThan(minLength) {
  *
  */
 function numberOfStateNamesLongerThan(minLength) {
-	// your code goes here!
+  let NOS = stateNamesLongerThan(minLength);
+  return NOS.length;
 }
 
 /**
@@ -108,7 +172,11 @@ function numberOfStateNamesLongerThan(minLength) {
  *
  */
 function replaceStateNames(newName, len) {
-	// your code goes here!
+  let NewNames = states.map(name => {
+    if (name.length === len) return newName;
+    else return name;
+  });
+  return NewNames;
 }
 
 /**
@@ -122,48 +190,51 @@ function replaceStateNames(newName, len) {
  *
  */
 function numberOfStateNamesContaining(subString) {
-	// your code goes here!
+  let number = 0;
+  states.forEach(name => {
+    if (name.includes(subString)) number++;
+  });
+  return number;
 }
-
 
 /**************************************************
 The following code runs the functions defined above
 ***************************************************/
-let numbers = [153,67,9,34,7,67,342,7,34,8656,2,124,5,43];
+let numbers = [153, 67, 9, 34, 7, 67, 342, 7, 34, 8656, 2, 124, 5, 43];
 
-// // filterEvens
-// let evens = filterEvens(numbers);
-// console.log("EVENS:");
-// console.log(evens);
+// filterEvens
+let evens = filterEvens(numbers);
+console.log("EVENS:");
+console.log(evens);
 
-// // sumOdds
-// let sum = sumOdds(numbers);
-// console.log("\n--------------------------")
-// console.log("SUM ODDS:");
-// console.log(sum);
+// sumOdds
+let sum = sumOdds(numbers);
+console.log("\n--------------------------");
+console.log("SUM ODDS:");
+console.log(sum);
 
-// // stateNamesLongerThan
-// let largeNames = stateNamesLongerThan(15);
-// console.log("\n--------------------------")
-// console.log("STATE NAMES LONGER THAN:");
-// console.log(largeNames);
+// stateNamesLongerThan
+let largeNames = stateNamesLongerThan(15);
+console.log("\n--------------------------");
+console.log("STATE NAMES LONGER THAN:");
+console.log(largeNames);
 
-// // numberOfStateNamesLongerThan
-// let numOfLargeStateNames = numberOfStateNamesLongerThan(10);
-// console.log("\n--------------------------")
-// console.log("NUMBER OF STATE NAMES LONGER THAN:");
-// console.log(numOfLargeStateNames);
+// numberOfStateNamesLongerThan
+let numOfLargeStateNames = numberOfStateNamesLongerThan(10);
+console.log("\n--------------------------");
+console.log("NUMBER OF STATE NAMES LONGER THAN:");
+console.log(numOfLargeStateNames);
 
-// // replaceStateNames
-// let newNames = replaceStateNames("REBOUND", 12);
-// console.log("\n--------------------------")
-// console.log("REPLACE STATE NAMES:");
-// console.log(newNames);
+// replaceStateNames
+let newNames = replaceStateNames("REBOUND", 12);
+console.log("\n--------------------------");
+console.log("REPLACE STATE NAMES:");
+console.log(newNames);
 
-// // numberOfStateNamesContaining
-// let occurances = numberOfStateNamesContaining("New");
-// console.log("\n--------------------------")
-// console.log("NUMBER OF STATE NAMES CONTAININGa:");
-// console.log(occurances);
+// numberOfStateNamesContaining
+let occurances = numberOfStateNamesContaining("New");
+console.log("\n--------------------------");
+console.log("NUMBER OF STATE NAMES CONTAININGa:");
+console.log(occurances);
 
 // How can you know the number of states with names that contain multiple words?
